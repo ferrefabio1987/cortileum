@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "cortileum",
+    "source": "/apps/admin",
+    "predeploy": [
+      "pnpm -C apps/admin build"
+    ],
+    "frameworksBackend": {
+      "region": "europe-west1",
+      "runtime": "nodejs20"
+    }
+  }
+}
