@@ -1,58 +1,66 @@
 {
-    "$schema": "https://raw.githubusercontent.com/getcursor/cursor/main/schema.json",
-    "name": "my-shop",
-    "description": "Monorepo e-commerce con Medusa + Next.js",
-    "monorepo": {
-      "apps": [
-        {
-          "name": "api",
-          "root": "apps/api",
-          "commands": {
-            "dev": "pnpm --filter api dev",
-            "build": "pnpm --filter api build"
-          },
-          "envFiles": [
-            "apps/api/.env"
-          ]
+  "$schema": "https://raw.githubusercontent.com/getcursor/cursor/main/schema.json",
+  "name": "my-shop",
+  "description": "Monorepo e-commerce con Medusa + Next.js",
+  "monorepo": {
+    "apps": [
+      {
+        "name": "api",
+        "root": "apps/api",
+        "commands": {
+          "dev": "pnpm --filter api dev",
+          "build": "pnpm --filter api build"
         },
-        {
-          "name": "web",
-          "root": "apps/web",
-          "commands": {
-            "dev": "pnpm --filter web dev",
-            "build": "pnpm --filter web build"
-          },
-          "envFiles": [
-            "apps/web/.env.local"
-          ]
-        }
-      ],
-      "packages": [
-        {
-          "name": "shared",
-          "root": "packages/shared"
-        }
-      ]
-    },
-    "languages": {
-      "typescript": {
-        "tsconfig": "./tsconfig.json"
+        "envFiles": [
+          "apps/api/.env"
+        ]
+      },
+      {
+        "name": "web",
+        "root": "apps/web",
+        "commands": {
+          "dev": "pnpm --filter web dev",
+          "build": "pnpm --filter web build"
+        },
+        "envFiles": [
+          "apps/web/.env.local"
+        ]
       }
-    },
-    "test": {
-      "framework": "jest",
-      "directories": ["apps/api", "apps/web"]
-    },
-    "lint": {
-      "directories": ["apps", "packages"],
-      "commands": ["pnpm lint"]
-    },
-    "docker": {
-      "composeFile": "docker-compose.yml",
-      "services": [
-        "postgres",
-        "redis"
-      ]
+    ],
+    "packages": [
+      {
+        "name": "shared",
+        "root": "packages/shared"
+      }
+    ]
+  },
+  "languages": {
+    "typescript": {
+      "tsconfig": "./tsconfig.json"
     }
+  },
+  "test": {
+    "framework": "jest",
+    "directories": [
+      "apps/api",
+      "apps/web",
+      "apps/admin"
+    ]
+  },
+  "lint": {
+    "directories": [
+      "apps",
+      "packages"
+    ],
+    "commands": [
+      "pnpm lint"
+    ]
+  },
+  "docker": {
+    "composeFile": "docker-compose.yml",
+    "services": [
+      "postgres",
+      "redis"
+    ]
   }
-  
+}

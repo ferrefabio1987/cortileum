@@ -1,13 +1,16 @@
 {
   "hosting": {
-    "site": "cortileum",
-    "source": "/apps/admin",
-    "predeploy": [
-      "pnpm -C apps/admin build"
-    ],
-    "frameworksBackend": {
-      "region": "europe-west1",
-      "runtime": "nodejs20"
-    }
+    "source": "apps/web"
+  },
+  "apphosting": {
+    "backendId": "cortileum",
+    "rootDir": "/",
+    "ignore": [
+      "node_modules",
+      ".git",
+      "firebase-debug.log",
+      "firebase-debug.*.log",
+      "functions"
+    ]
   }
 }
